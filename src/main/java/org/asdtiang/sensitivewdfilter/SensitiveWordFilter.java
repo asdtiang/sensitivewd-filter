@@ -1,6 +1,6 @@
 package org.asdtiang.sensitivewdfilter;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author abel lee
@@ -19,11 +19,11 @@ public interface SensitiveWordFilter {
      */
     void changeReplaceChar(char replaceChar);
 
-    List<String> readWordFromFile(String path);
+    Set<String> readWordFromFile(String path);
 
-    void addStopWord(final List<String> words);
+    void addStopWord(Set<String> words);
 
-    void addSensitiveWord(List<String> words);
+    void addSensitiveWord(Set<String> words);
 
     String doFilter(String src);
 

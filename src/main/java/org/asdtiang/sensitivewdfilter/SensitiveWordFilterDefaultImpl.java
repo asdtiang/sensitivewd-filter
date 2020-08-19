@@ -1,11 +1,11 @@
 package org.asdtiang.sensitivewdfilter;
 
+import org.asdtiang.sensitivewdfilter.util.BCConvert;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
-import org.asdtiang.sensitivewdfilter.util.BCConvert;
 
 /**
  * 创建时间：2016年8月30日 下午3:01:12
@@ -51,17 +51,17 @@ public class SensitiveWordFilterDefaultImpl implements SensitiveWordFilter{
 
 	/**
 	 * 增加敏感词
-	 * 
+	 *
 	 * @param path
 	 * @return
 	 */
-	public List<String> readWordFromFile(String path) {
-		List<String> words;
+	public Set<String> readWordFromFile(String path) {
+		Set<String> words;
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new InputStreamReader(SensitiveWordFilterDefaultImpl.class.getClassLoader().getResourceAsStream(path)));
-			words = new ArrayList<String>(1200);
-			for (String buf = ""; (buf = br.readLine()) != null;) {
+			words = new HashSet<>(1200);
+			for (String buf = ""; (buf = br.readLine()) != null; ) {
 				if (buf == null || buf.trim().equals(""))
 					continue;
 				words.add(buf);
@@ -80,10 +80,10 @@ public class SensitiveWordFilterDefaultImpl implements SensitiveWordFilter{
 
 	/**
 	 * 增加停顿词
-	 * 
+	 *
 	 * @param words
 	 */
-	public void addStopWord(List<String> words) {
+	public void addStopWord(Set<String> words) {
 		if (!isEmpty(words)) {
 			char[] chs;
 			for (String curr : words) {
@@ -97,10 +97,10 @@ public class SensitiveWordFilterDefaultImpl implements SensitiveWordFilter{
 
 	/**
 	 * 添加DFA节点
-	 * 
+	 *
 	 * @param words
 	 */
-	public  void addSensitiveWord(List<String> words) {
+	public void addSensitiveWord(Set<String> words) {
 		if (!isEmpty(words)) {
 			char[] chs;
 			int fchar;

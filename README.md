@@ -5,7 +5,7 @@
 
 集成maven repo 
 
-https://jitpack.io/#asdtiang/sensitivewd-filter/0.0.1-RELEASE
+https://jitpack.io/#asdtiang/sensitivewd-filter/0.0.2-RELEASE
 
 #更改记录
 

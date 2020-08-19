@@ -9,25 +9,32 @@ import java.util.*;
 
 /**
  * 创建时间：2016年8月30日 下午3:01:12
- * 
+ *
  * 思路： 创建一个FilterSet，枚举了0~65535的所有char是否是某个敏感词开头的状态
- * 
+ *
  * 判断是否是 敏感词开头 | | 是 不是 获取头节点 OK--下一个字 然后逐级遍历，DFA算法
- * 
+ *
  * @author andy
  * @version 2.2
  */
-public class SensitiveWordFilterDefaultImpl implements SensitiveWordFilter{
+public class SensitiveWordFilterDefaultImpl implements SensitiveWordFilter {
 
-	private static final FilterSet FILTER_SET = new FilterSet(); // 存储首字
+	private static FilterSet FILTER_SET = new FilterSet(); // 存储首字
 
-	private static  Map<Integer, WordNode> nodes = new HashMap<Integer, WordNode>(1024); // 存储节点
+	private static Map<Integer, WordNode> nodes = new HashMap<Integer, WordNode>(1024); // 存储节点
 	private static final Set<Integer> STOPWD_SET = new HashSet<>(); // 停顿词
-	private static  char SIGN = '*'; // 敏感词过滤替换
+	private static char SIGN = '*'; // 敏感词过滤替换
 
 	@Override
 	public void init(int hashMapSize) {
 		nodes = new HashMap<>(hashMapSize);
+	}
+
+	@Override
+	public void clear() {
+		nodes.clear();
+		STOPWD_SET.clear();
+		FILTER_SET = new FilterSet();
 	}
 
 	@Override

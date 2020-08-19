@@ -5,13 +5,13 @@
 
 集成maven repo 
 
-https://jitpack.io/#asdtiang/sensitivewd-filter/0.0.2-RELEASE
+https://jitpack.io/#asdtiang/sensitivewd-filter/0.0.3-RELEASE
 
 #更改记录
 
 更改为接口实现方式，方便spring集成。
 
-spring 集成
+spring 集成，并提供清空敏感词和停词接口。
 
 ```java
 @Component

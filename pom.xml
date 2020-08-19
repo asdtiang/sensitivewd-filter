@@ -4,7 +4,7 @@
 
 	<groupId>org.asdtiang</groupId>
 	<artifactId>sensitivewd-filter</artifactId>
-	<version>0.0.2-RELEASE</version>
+	<version>0.0.3-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<url>http://maven.apache.org</url>

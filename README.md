@@ -3,6 +3,9 @@
 项目原地址： https://github.com/andyzty/sensitivewd-filter
 
 
+集成maven repo 
+
+https://jitpack.io/#asdtiang/sensitivewd-filter/0.0.1-RELEASE
 
 #更改记录
 
